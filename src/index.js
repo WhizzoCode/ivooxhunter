@@ -1,10 +1,12 @@
 import fs from "fs";
 
+let podcasts;
+
 // Load configuration
 
 const configUrl = new URL("../config.json", import.meta.url);
 const config = JSON.parse(fs.readFileSync(configUrl));
-const podcasts = config.podcasts;
+podcasts = config.podcasts;
 
 // Print script name
 
