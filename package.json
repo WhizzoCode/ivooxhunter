@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/WhizzoCode/ivooxhunter/issues"
   },
-  "homepage": "https://github.com/WhizzoCode/ivooxhunter#readme"
+  "homepage": "https://github.com/WhizzoCode/ivooxhunter#readme",
+  "dependencies": {
+    "prompt": "^1.1.0"
+  }
 }
