@@ -1,0 +1,20 @@
+{
+  "podcasts":[
+    {
+      "name": "A Ciencia Cierta",
+      "url": "https://www.ivoox.com/podcast-a-ciencia-cierta_sq_f1286369_1.html"
+    },
+    {
+      "name": "Web Reactiva",
+      "url": "https://www.ivoox.com/podcast-web-reactiva-programacion-desarrollo-web_sq_f1454279_1.html"
+    },
+    {
+      "name": "República Web",
+      "url": "https://www.ivoox.com/podcast-republica-web_sq_f1288530_1.html"
+    },
+    {
+      "name": "RUN",
+      "url": "https://www.ivoox.com/podcast-run-videojuegos-desde-dentro_sq_f1430205_1.html"
+    }
+  ]
+}
