@@ -49,3 +49,14 @@ const { podcastNum } = await prompt.get({
 if (podcastNum > 0) {
   podcasts = [podcasts[podcastNum - 1]];
 }
+
+// Ask days
+
+const { days } = await prompt.get({
+  properties: {
+    days: {
+      description: "\n¿Cuantos días quieres consultar?",
+      default: 14
+    }
+  }
+});
