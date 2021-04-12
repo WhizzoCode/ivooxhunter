@@ -13,6 +13,7 @@ podcasts = config.podcasts;
 const packageJsonUrl = new URL("../package.json", import.meta.url);
 const packageJson = JSON.parse(fs.readFileSync(packageJsonUrl));
 
+console.log();
 console.log(`${ packageJson.name } ${ packageJson.version }`);
 
 // Print podcasts
