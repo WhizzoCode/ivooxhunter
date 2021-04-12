@@ -19,10 +19,8 @@ console.log();
 console.log("Mis podcasts:");
 console.log();
 
-let i = 1;
-podcasts.forEach(podcast => {
-  console.log(`  ${ i }. ${ podcast.name }`);
-  i++;
+podcasts.forEach((podcast, i) => {
+  console.log(`  ${ i + 1 }. ${ podcast.name }`);
 });
 
 console.log("  0. Todos");
