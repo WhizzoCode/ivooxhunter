@@ -1,6 +1,11 @@
 import fs from "fs";
+import prompt from "prompt";
 
 let podcasts;
+
+prompt.start();
+prompt.message = "";
+prompt.delimiter = "";
 
 // Load configuration
 
@@ -27,3 +32,14 @@ podcasts.forEach((podcast, i) => {
 });
 
 console.log("  0. Todos");
+
+// Ask podcast
+
+const { podcastNum } = await prompt.get({
+  properties: {
+    podcastNum: {
+      description: "\n¿Que podcast quieres consultar?",
+      default: 0
+    }
+  }
+});
