@@ -43,3 +43,9 @@ const { podcastNum } = await prompt.get({
     }
   }
 });
+
+// Filter podcasts
+
+if (podcastNum > 0) {
+  podcasts = [podcasts[podcastNum - 1]];
+}
