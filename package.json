@@ -1,0 +1,25 @@
+{
+  "name": "ivooxhunter",
+  "version": "1.0.0",
+  "description": "ivoox downloader for terminal",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WhizzoCode/ivooxhunter.git"
+  },
+  "keywords": [
+    "ivoox",
+    "podcast",
+    "podcatcher",
+    "download"
+  ],
+  "author": "Sergio Martín <sergio@sergiomartin.dev> (https://www.sergiomartin.dev)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WhizzoCode/ivooxhunter/issues"
+  },
+  "homepage": "https://github.com/WhizzoCode/ivooxhunter#readme"
+}
