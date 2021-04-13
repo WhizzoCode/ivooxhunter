@@ -1,4 +1,5 @@
 {
+  "requestWait": 2000,
   "podcasts":[
     {
       "name": "A Ciencia Cierta",
