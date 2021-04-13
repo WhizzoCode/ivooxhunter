@@ -25,6 +25,7 @@
   "homepage": "https://github.com/WhizzoCode/ivooxhunter#readme",
   "dependencies": {
     "axios": "^0.21.1",
+    "jsdom": "^16.5.3",
     "prompt": "^1.1.0"
   }
 }
