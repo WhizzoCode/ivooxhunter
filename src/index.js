@@ -1,7 +1,9 @@
 import fs from "fs";
 import prompt from "prompt";
 
+let config;
 let podcasts;
+let episodes;
 
 prompt.start();
 prompt.message = "";
@@ -10,7 +12,7 @@ prompt.delimiter = "";
 // Load configuration
 
 const configUrl = new URL("../config.json", import.meta.url);
-const config = JSON.parse(fs.readFileSync(configUrl));
+config = JSON.parse(fs.readFileSync(configUrl));
 podcasts = config.podcasts;
 
 // Print script name
