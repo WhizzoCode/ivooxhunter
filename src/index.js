@@ -68,10 +68,10 @@ const { days } = await prompt.get({
 
 // Get episodes data
 
-for (const podcast of podcasts) {
+console.log();
+console.log("Consultando...");
 
-  console.log();
-  console.log("Consultando...");
+for (const podcast of podcasts) {
 
   if (podcasts.indexOf(podcast) > 0) {
     await new Promise(resolve => setTimeout(resolve, config.requestWait));
