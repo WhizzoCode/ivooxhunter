@@ -30,11 +30,16 @@ console.log();
 console.log("Mis podcasts:");
 console.log();
 
-podcasts.forEach((podcast, i) => {
-  console.log(`  ${ i + 1 }. ${ podcast.name }`);
-});
+const longestIndex = String(podcasts.length).length;
 
-console.log("  0. Todos");
+for (const podcast of podcasts) {
+  const index = podcasts.indexOf(podcast) + 1;
+  const indexSpaces = ' '.repeat(longestIndex - String(index).length);
+  console.log(`  ${ indexSpaces }${ index }. ${ podcast.name }`);
+}
+
+const indexSpaces = ' '.repeat(longestIndex - 1);
+console.log(`  ${ indexSpaces }0. Todos`);
 
 // Ask podcast
 
