@@ -77,10 +77,12 @@ for (const podcast of podcasts) {
     await new Promise(resolve => setTimeout(resolve, config.requestWait));
   }
 
-  Array.prototype.push.apply(
-    episodes,
-    await ivoox.getEpisodes(podcast.url, days, config.requestWait)
-  );
+  const podcastEpisodes = await ivoox.getEpisodes(podcast.url, days, config.requestWait);
+  podcastEpisodes.forEach(episode => {
+    episode.podcast = podcast.name;
+  });
+
+  Array.prototype.push.apply(episodes, podcastEpisodes);
 
 }
 
