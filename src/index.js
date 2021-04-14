@@ -91,3 +91,31 @@ episodes.sort((a, b) => {
   if (a.date < b.date) return  1;
   return 0;
 });
+
+// Print episodes
+
+function removeTime(date) {
+  date.setHours(0);
+  date.setMinutes(0);
+  date.setSeconds(0);
+  date.setMilliseconds(0);
+  return new Date(date - date.getTimezoneOffset() * 60 * 1000);
+}
+
+const repTitleSpaces = String(episodes.length).length + 2;
+const titleSpaces = ' '.repeat(repTitleSpaces);
+
+const today = removeTime(new Date());
+
+for (const episode of episodes) {
+  const index = episodes.indexOf(episode) + 1;
+  const repIndexSpaces = repTitleSpaces - 2 - String(index).length;
+  const indexSpaces = ' '.repeat(repIndexSpaces);
+
+  const numDays = (today - removeTime(episode.date)) / 1000 / 60 / 60 / 24;
+  const numDaysText = numDays === 1 ? "día" : "días";
+
+  console.log();
+  console.log(`  ${ indexSpaces }${ index }. ${ episode.podcast } (${ numDays } ${ numDaysText })`);
+  console.log(`  ${ titleSpaces }${ episode.title }`);
+}
