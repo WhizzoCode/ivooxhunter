@@ -1,9 +1,9 @@
 import fs from "fs";
 import prompt from "prompt";
 
-let config;
-let podcasts;
-let episodes;
+let config = {};
+let podcasts = [];
+let episodes = [];
 
 prompt.start();
 prompt.message = "";
