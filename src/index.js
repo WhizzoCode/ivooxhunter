@@ -41,14 +41,15 @@ const { podcastNum } = await prompt.get({
   properties: {
     podcastNum: {
       description: "\n¿Que podcast quieres consultar?",
-      default: 0
+      default: 0,
+      type: "integer"
     }
   }
 });
 
 // Filter podcasts
 
-if (podcastNum > 0) {
+if (podcastNum) {
   podcasts = [podcasts[podcastNum - 1]];
 }
 
@@ -58,7 +59,8 @@ const { days } = await prompt.get({
   properties: {
     days: {
       description: "\n¿Cuantos días quieres consultar?",
-      default: 14
+      default: 14,
+      type: "integer"
     }
   }
 });
