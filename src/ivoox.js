@@ -51,7 +51,7 @@ async function getEpisodes(url, date, requestWait = 2000, next = false) {
   const filteredEpisodes = pageEpisodes.filter(episode => episode.date > date);
   
   Array.prototype.push.apply(episodes, filteredEpisodes);
-  console.log(requestWait);
+  
   if (pageEpisodes.length === filteredEpisodes.length) {
     await new Promise(resolve => setTimeout(resolve, requestWait));
     Array.prototype.push.apply(episodes, await getEpisodes(page("next", url), date, requestWait, true));
@@ -59,3 +59,5 @@ async function getEpisodes(url, date, requestWait = 2000, next = false) {
   
   return episodes;
 }
+
+export default { getEpisodes };
