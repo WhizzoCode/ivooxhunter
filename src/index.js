@@ -1,5 +1,6 @@
 import fs from "fs";
 import prompt from "prompt";
+import ivoox from "./ivoox.js";
 
 let config = {};
 let podcasts = [];
@@ -63,4 +64,28 @@ const { days } = await prompt.get({
       type: "integer"
     }
   }
+});
+
+// Get episodes data
+
+for (const podcast of podcasts) {
+
+  console.log();
+  console.log("Consultando...");
+
+  if (podcasts.indexOf(podcast) > 0) {
+    await new Promise(resolve => setTimeout(resolve, config.requestWait));
+  }
+
+  Array.prototype.push.apply(
+    episodes,
+    await ivoox.getEpisodes(podcast.url, days, config.requestWait)
+  );
+
+}
+
+episodes.sort((a, b) => {
+  if (a.date > b.date) return -1;
+  if (a.date < b.date) return  1;
+  return 0;
 });
