@@ -124,3 +124,16 @@ for (const episode of episodes) {
   console.log(`  ${ indexSpaces }${ index }. ${ episode.podcast } (${ numDays } ${ numDaysText })`);
   console.log(`  ${ titleSpaces }${ episode.title }`);
 }
+
+// Ask episodes to download
+
+const { episodesDownloadStr } = await prompt.get({
+  properties: {
+    episodesDownloadStr: {
+      description: "\n¿Que episodios quieres descargar?, usa espacios para separarlos:",
+      type: "string"
+    }
+  }
+});
+
+episodes = episodesDownloadStr.split(" ").map(episodeNum => episodes[Number(episodeNum) - 1]);
