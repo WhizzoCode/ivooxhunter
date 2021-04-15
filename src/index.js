@@ -2,6 +2,8 @@ import fs from "fs";
 import url from "url";
 import path from "path";
 import prompt from "prompt";
+import axios from "axios";
+import sanitize from "sanitize-filename";
 import ivoox from "./ivoox.js";
 
 const basePath = url.fileURLToPath(new URL("..", import.meta.url));
@@ -146,3 +148,37 @@ const { episodesDownloadStr } = await prompt.get({
 });
 
 episodes = episodesDownloadStr.split(" ").map(episodeNum => episodes[Number(episodeNum) - 1]);
+
+// Download episodes
+
+console.log();
+
+async function downloadEpisode(episode) {
+  const fileName = sanitize(episode.title, {replacement: "_"}).concat(".mp3");
+  const podcastDir = sanitize(episode.podcast, {replacement: "_"});
+  const filePath = path.join(config.downloadPath, podcastDir, fileName);
+  const writer = fs.createWriteStream(filePath);
+
+  fs.mkdirSync(path.dirname(filePath), {recursive: true});
+
+  const response = await axios({
+    url: episode.url,
+    method: "GET",
+    responseType: "stream"
+  });
+
+  response.data.pipe(writer);
+
+  return new Promise((resolve, reject) => {
+    writer.on("finish", resolve);
+    writer.on("error", reject);
+  });
+}
+
+for (const episode of episodes) {
+  console.log(`Descargando... ${ episodes.indexOf(episode) + 1 }/${ episodes.length }`);
+  await downloadEpisode(episode);
+}
+
+console.log("Descarga terminada");
+console.log();
