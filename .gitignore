@@ -1,2 +1,4 @@
+*.mp3
+
 # Node.js
 node_modules/
