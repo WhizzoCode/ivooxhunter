@@ -1,7 +1,10 @@
 import fs from "fs";
+import url from "url";
+import path from "path";
 import prompt from "prompt";
 import ivoox from "./ivoox.js";
 
+const basePath = url.fileURLToPath(new URL("..", import.meta.url));
 let config = {};
 let podcasts = [];
 let episodes = [];
@@ -12,13 +15,13 @@ prompt.delimiter = "";
 
 // Load configuration
 
-const configUrl = new URL("../config.json", import.meta.url);
+const configUrl = path.join(basePath, "config.json");
 config = JSON.parse(fs.readFileSync(configUrl));
 podcasts = config.podcasts;
 
 // Print script name
 
-const packageJsonUrl = new URL("../package.json", import.meta.url);
+const packageJsonUrl = path.join(basePath, "package.json");
 const packageJson = JSON.parse(fs.readFileSync(packageJsonUrl));
 
 console.log();
