@@ -17,6 +17,14 @@ cd ivooxhunter
 npm install
 ```
 
+Configure:
+
+```shell
+cp config-template.json config.json
+```
+
+*You can see about the configuration file on the [next](#Configuration) section.*
+
 Execute:
 
 ```shell

@@ -18,7 +18,16 @@ prompt.delimiter = "";
 // Configure
 
 const configUrl = path.join(basePath, "config.json");
-config = JSON.parse(fs.readFileSync(configUrl));
+
+try {
+  config = JSON.parse(fs.readFileSync(configUrl));
+} catch (e) {
+  console.log();
+  console.log("Archivo de configuración no encontrado.");
+  console.log()
+  process.exit(1);
+}
+
 podcasts = config.podcasts;
 
 if (!path.isAbsolute(config.downloadPath)) {
