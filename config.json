@@ -1,4 +1,5 @@
 {
+  "downloadPath": "podcasts",
   "requestWait": 1000,
   "podcasts":[
     {

@@ -13,11 +13,17 @@ prompt.start();
 prompt.message = "";
 prompt.delimiter = "";
 
-// Load configuration
+// Configure
 
 const configUrl = path.join(basePath, "config.json");
 config = JSON.parse(fs.readFileSync(configUrl));
 podcasts = config.podcasts;
+
+if (!path.isAbsolute(config.downloadPath)) {
+  config.downloadPath = path.join(basePath, config.downloadPath);
+}
+
+console.log(config.downloadPath);
 
 // Print script name
 
