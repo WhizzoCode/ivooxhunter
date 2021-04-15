@@ -157,9 +157,9 @@ async function downloadEpisode(episode) {
   const fileName = sanitize(episode.title, {replacement: "_"}).concat(".mp3");
   const podcastDir = sanitize(episode.podcast, {replacement: "_"});
   const filePath = path.join(config.downloadPath, podcastDir, fileName);
-  const writer = fs.createWriteStream(filePath);
 
   fs.mkdirSync(path.dirname(filePath), {recursive: true});
+  const writer = fs.createWriteStream(filePath);
 
   const response = await axios({
     url: episode.url,
