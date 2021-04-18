@@ -21,7 +21,7 @@ function parseIvoox(document) {
     .querySelectorAll("div.modulo-type-episodio")
     .forEach(element => {
       const titleElement = element.querySelector(".content .title-wrapper a");
-      const title = titleElement.title;
+      const title = titleElement.textContent.trim();
       const fileCode = titleElement.href.split("_")[2];
       const url = `http://ivoox.com/listen_mn_${ fileCode }_1.mp3`;
       const splitDate = element.querySelector(".content .action .date")
