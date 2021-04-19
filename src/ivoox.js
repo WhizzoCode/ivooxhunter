@@ -33,7 +33,9 @@ function parseIvoox(document) {
         splitDate[1],
         splitDate[2]
       );
-      parsed.push({title, url, date});
+      const premiumElement = element.querySelector(".content .title-wrapper .fan-title");
+      const premium = premiumElement === null ? false : true;
+      parsed.push({title, url, date, premium});
     });
   return parsed;
 }

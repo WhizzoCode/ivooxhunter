@@ -142,7 +142,11 @@ for (const episode of episodes) {
 
   console.log();
   console.log(`  ${ indexSpaces }${ index }. ${ episode.podcast } (${ numDays } ${ numDaysText })`);
-  console.log(`  ${ titleSpaces }${ episode.title }`);
+  if (episode.premium) {
+    console.log(`  ${ titleSpaces }[PREMIUM] ${ episode.title }`);
+  } else {
+    console.log(`  ${ titleSpaces }${ episode.title }`);
+  }
 }
 
 // Ask episodes to download
