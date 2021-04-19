@@ -34,8 +34,6 @@ if (!path.isAbsolute(config.downloadPath)) {
   config.downloadPath = path.join(basePath, config.downloadPath);
 }
 
-console.log(config.downloadPath);
-
 // Print script name
 
 const packageJsonUrl = path.join(basePath, "package.json");
