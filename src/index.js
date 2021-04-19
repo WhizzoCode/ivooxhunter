@@ -4,6 +4,7 @@ import path from "path";
 import prompt from "prompt";
 import axios from "axios";
 import sanitize from "sanitize-filename";
+import colors from "colors/safe.js";
 import ivoox from "./ivoox.js";
 
 const basePath = url.fileURLToPath(new URL("..", import.meta.url));
@@ -141,7 +142,7 @@ for (const episode of episodes) {
   console.log();
   console.log(`  ${ indexSpaces }${ index }. ${ episode.podcast } (${ numDays } ${ numDaysText })`);
   if (episode.premium) {
-    console.log(`  ${ titleSpaces }[PREMIUM] ${ episode.title }`);
+    console.log(`  ${ titleSpaces }${ colors.red("[PREMIUM]") } ${ episode.title }`);
   } else {
     console.log(`  ${ titleSpaces }${ episode.title }`);
   }
